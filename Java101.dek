@@ -1,0 +1,48 @@
+Class##A blueprint for creating objects. It defines the data and behavior an object can have.
+Object##An instance of a class. Objects are created from class blueprints.
+Method##A block of code that performs a specific task and can be called when needed.
+Field##A variable that belongs to a class or object and stores data.
+Variable##A named storage location in memory that holds a value.
+Constructor##A special method used to create and initialize a new object.
+Parameter##A variable listed in a method header that receives a value when the method is called.
+Argument##The actual value passed into a method when it is called.
+Return Type##The type of value a method sends back after it finishes running.
+void##A return type that means a method does not return any value.
+main Method##The starting point of a Java program where execution begins.
+String##A sequence of characters used to store text.
+int##A primitive data type used to store whole numbers.
+double##A primitive data type used to store decimal numbers.
+boolean##A primitive data type that stores either true or false.
+char##A primitive data type that stores a single character.
+if Statement##A control structure that runs code only when a condition is true.
+else Statement##A control structure that runs alternate code when an if condition is false.
+for Loop##A loop that repeats code a set number of times using initialization, condition, and update parts.
+while Loop##A loop that repeats code as long as its condition remains true.
+Array##A fixed-size structure that stores multiple values of the same type.
+ArrayList##A resizable list object that can store multiple values and grow or shrink as needed.
+Index##The position of an element in a list or array, starting at 0.
+Encapsulation##The practice of bundling data and methods together in a class and controlling access to them.
+Inheritance##A feature where one class can extend another class and reuse its fields and methods.
+Subclass##A class that inherits from another class.
+Superclass##The parent class that another class extends from.
+Override##To provide a new version of an inherited method in a subclass.
+this##A reference to the current object being used inside a class.
+static##A keyword that makes a field or method belong to the class itself rather than an object instance.
+final##A keyword used to make a variable unchangeable, a method not overridable, or a class not extendable.
+Access Modifier##A keyword like public or private that controls where a class member can be accessed from.
+public##An access modifier that allows a class, field, or method to be used from anywhere.
+private##An access modifier that allows a field or method to be used only inside its own class.
+Getter##A method that returns the value of a private field.
+Setter##A method that changes the value of a private field.
+Scanner##A Java class commonly used to read user input or file input.
+Exception##An event that disrupts normal program flow, often caused by an error.
+try##A block used to wrap code that might throw an exception.
+catch##A block used to handle an exception thrown by code in a try block.
+Null##A special value meaning a reference points to no object.
+toString##A method that returns a String representation of an object.
+Import##A statement that allows a Java file to use classes from other packages.
+Package##A namespace used to organize related Java classes.
+Compile##To translate Java source code into bytecode that the JVM can run.
+JVM##The Java Virtual Machine, which runs compiled Java bytecode on different systems.
+Comment##Text in code meant for humans and ignored by the compiler.
+End Of Deck##This is the end of the deck.

@@ -26,8 +26,10 @@ Under file you have 3 options:
 **New Deck** - Clear the currently loaded deck (if there is one) and set the name of the new empty deck based on user input.
 
 **Load Deck** - Clear the currently loaded deck (if there is one) and populate the deck list based on the supplied .dek file
+a deck is provided (Java101.dek) for you to load and test the program with.
 
 **Save Deck** - Saves the currently loaded deck as a .dek file to be used later, name of the file will reflect the name of the deck.
+if current deck has no name it will default to "New Deck".
 
 <h3>Adding new cards</h3>
 At any point you can edit the current deck by adding new cards with the Prompt and Description fields. Prompt will represent the front of the card and description will represent the back of the card.

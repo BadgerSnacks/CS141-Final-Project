@@ -47,3 +47,6 @@ Cards can also manually be selected from the deck list on the left side of the s
 - https://openjfx.io/javadoc/25/javafx.controls/javafx/scene/control/TextArea.html How to use JavaFX text field
 - https://jenkov.com/tutorials/javafx/listview.html Listview tutorial
 - https://stackoverflow.com/questions/30458972/how-to-set-only-a-top-padding-in-javafx Padding tips
+
+<h3>LICENSE</h3>
+GNU AFFERO GENERAL PUBLIC LICENSE Version 3

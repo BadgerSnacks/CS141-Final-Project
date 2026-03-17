@@ -296,7 +296,7 @@ public class FlashCards extends Application {
     }
 
     // the main method that launches the javafx stage
-    public static void main(){
+    public static void main(String[] args){
         launch(); // the launch command
     }
 }

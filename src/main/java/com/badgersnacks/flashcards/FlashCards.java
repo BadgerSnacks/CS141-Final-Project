@@ -279,35 +279,33 @@ public class FlashCards extends Application {
 
     // this method listens for changes in the list to update the current and previous card's selected.
     private void deckListListener(){
-        deckList.getSelectionModel().selectedItemProperty().addListener((observable, oldCard, newCard) -> {
-            if (newCard != null) {
-                currentCard = newCard;
-                previousCard = oldCard;
-                currentIndex = deckList.getSelectionModel().getSelectedIndex();
-                frontLabel.setText(currentCard.getFront());
+        deckList.getSelectionModel().selectedItemProperty().addListener((observable, oldCard, newCard) -> { // on action event that listens for the currently selected and previously selected item in the deck list
+            if (newCard != null) {  // checks if the current card exsists and is not null
+                currentCard = newCard; // assigns the currently selected item in the deck list to the current card field
+                previousCard = oldCard; // assigns the previously selected card to the previous card field
+                currentIndex = deckList.getSelectionModel().getSelectedIndex(); // changes the currentIndex field to match the index count of the item in the deck list
+                frontLabel.setText(currentCard.getFront()); // sets the frontLabel field to match the currently selected card
 
-                if (previousCard != null) {
-                    backLabel.setText(previousCard.getBack());
+                if (previousCard != null) { // checks to see if there is a previous card or not
+                    backLabel.setText(previousCard.getBack()); // assigns the backLabel field based on the previous card selected
                 } else {
-                    backLabel.setText("");
+                    backLabel.setText(""); // sets the backLabel field to empty if there is not previously card selected
                 }
             }
         });
     }
 
-    // write a method to save my card to a text file, single line per card, use Prompt: "String" ||| Description: "String" to make it easy to decipher.
-    // write a method to read from the text file and load the cards.
-
+    // the main method that launches the javafx stage
     public static void main(){
-        launch();
+        launch(); // the launch command
     }
 }
 
 // Class to handle the individual flash cards.
 class FlashCard {
     // private fields to hold the front and back strings of the cards
-    private String frontOfCard;
-    private String backOfCard;
+    private String frontOfCard; // field to hold the string for the front of the card
+    private String backOfCard; // field to hold the string for the back of the card
 
     // Constructor to build the flashCard object and assign the strings based on the incoming parameters
     public FlashCard(String frontOfCard, String backOfCard){
@@ -403,43 +401,46 @@ class Deck{
     }
 }
 
+// class to handle the IO functions of my program
 class DeckFileManager{
 
+    // method to load in a deck from a .dek file
     public static Deck loadDeck(File file) throws FileNotFoundException {
-        Deck deck = new Deck();
-        String fileName = file.getName();
-        if (fileName.endsWith(".dek")) {
-            deck.setDeckName(fileName.substring(0, fileName.length() - 4));
+        Deck deck = new Deck(); // creates a new empty deck object
+        String fileName = file.getName(); // assigns a string variable the name of the file using java IO file methods
+        if (fileName.endsWith(".dek")) { // checks to see if the file ends in the .dek format
+            deck.setDeckName(fileName.substring(0, fileName.length() - 4)); // names the new deck based on the file name removing the .dek file exstention
         }
 
-        Scanner input = new Scanner(file);
-        while (input.hasNextLine()){
-            String line = input.nextLine();
-            String[] parts = line.split("##");
+        Scanner input = new Scanner(file); // constructor to create a new scanner
+        while (input.hasNextLine()){ // while loop to check for next line in the loaded file
+            String line = input.nextLine(); // assigns the current line to a string variable
+            String[] parts = line.split("##"); // splits the line variable into two parts based on the separator defined here.
 
-            if (parts.length == 2){
-                deck.addCard(parts[0], parts[1]);
+            if (parts.length == 2){ // checks to make sure the splint line contains only two parts
+                deck.addCard(parts[0], parts[1]); // adds a new card to the deck assigning the first part to the front and the second part to the back
             }
         }
 
-        return deck;
+        return deck; // returns the newly created deck
     }
 
+    // method to save the current deck.
     public static void saveDeck(String deckName, Deck currentDeck) throws FileNotFoundException {
-        if (deckName == null){
-            deckName = "New Deck";
+        if (deckName == null){ // checks if there is a deck name set
+            deckName = "New Deck"; // if there is no name set defaults to New Deck
         }
-        if (!deckName.endsWith(".dek")) {
-            deckName += ".dek";
-        }
-
-        PrintStream output = new PrintStream(deckName);
-
-        for (int i = 0; i < currentDeck.getSize(); i++){
-            FlashCard card = currentDeck.getCard(i);
-            output.println(card.getFront() + "##" + card.getBack());
+        if (!deckName.endsWith(".dek")) { // checks to see if the deck name ends with the file format
+            deckName += ".dek"; // adds the file format before saving the deck
         }
 
-        output.close();
+        PrintStream output = new PrintStream(deckName); // creates a new PrintStream object passing the deckName into as the file name
+
+        for (int i = 0; i < currentDeck.getSize(); i++){ // loop that cycles through the current deck
+            FlashCard card = currentDeck.getCard(i); // as it iterates through the deck it creates a new copy of each flash card
+            output.println(card.getFront() + "##" + card.getBack()); // outputs the front and back of the card with the ## to the print stream
+        }
+
+        output.close(); // closes the output stream
     }
 }
